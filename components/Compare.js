@@ -59,7 +59,7 @@ export default function Compare() {
                 <tr key={label}>
                   <th scope="row">{label}</th>
                   {vals.map((v, i) => (
-                    <td key={i} className={i === 0 ? "is-arch" : ""}>
+                    <td key={i} className={i === 0 ? "is-arch" : ""} data-label={COLS[i]}>
                       <Cell v={v} />
                     </td>
                   ))}

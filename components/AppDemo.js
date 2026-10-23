@@ -284,8 +284,8 @@ export default function AppDemo() {
               <div className="phone__status" aria-hidden="true">
                 <span>9:41</span>
                 <span className="phone__island" />
-                <span className={`batt ${lowBatt ? "is-low" : ""} ${charging ? "is-charging" : ""}`}>
-                  <i style={{ width: `${battery}%` }} />
+                <span className="batt">
+                  <i style={{ width: "78%" }} />
                 </span>
               </div>
 

@@ -833,12 +833,6 @@ input[type="range"]::-moz-range-thumb {
   background: var(--text);
   transition: width 0.3s;
 }
-.batt.is-low i {
-  background: var(--heat);
-}
-.batt.is-charging i {
-  background: #5ee08a;
-}
 .notif {
   position: absolute;
   z-index: 5;
@@ -994,18 +988,13 @@ input[type="range"]::-moz-range-thumb {
 }
 .chips {
   display: flex;
+  flex-wrap: wrap;
   gap: 6px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  padding-bottom: 2px;
-}
-.chips::-webkit-scrollbar {
-  display: none;
 }
 .chips button {
   flex: none;
-  height: 32px;
-  padding: 0 12px;
+  height: 30px;
+  padding: 0 11px;
   border-radius: 999px;
   border: 1px solid var(--line-strong);
   font-size: 13px;
@@ -1541,6 +1530,71 @@ td:not(.is-arch) .yes svg {
 .is-arch .txt {
   color: var(--text);
   font-weight: 600;
+}
+
+@media (max-width: 760px) {
+  .compare__scroll {
+    overflow: visible;
+    border: 0;
+    border-radius: 0;
+  }
+  .compare__table {
+    min-width: 0;
+  }
+  .compare__table thead {
+    display: none;
+  }
+  .compare__table,
+  .compare__table tbody,
+  .compare__table tr {
+    display: block;
+  }
+  .compare__table tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+  .compare__table tbody th {
+    grid-column: 1 / -1;
+    padding: 14px 16px;
+    font-family: var(--f-display);
+    font-variation-settings: "wdth" 108;
+    font-weight: 700;
+    font-size: 17px;
+    border-bottom: 1px solid var(--line);
+  }
+  .compare__table td {
+    display: grid;
+    gap: 6px;
+    align-content: start;
+    padding: 12px 16px;
+    border-bottom: 0;
+    border-top: 1px solid var(--line);
+  }
+  .compare__table td:nth-of-type(even) {
+    border-left: 1px solid var(--line);
+  }
+  .compare__table td:nth-of-type(-n + 2) {
+    border-top: 0;
+  }
+  .compare__table td::before {
+    content: attr(data-label);
+    font-family: var(--f-mono);
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .compare__table td.is-arch::before {
+    color: var(--ice);
+  }
+  .compare__table tbody tr:last-child th,
+  .compare__table tbody tr:last-child td {
+    border-bottom: 0;
+  }
 }
 
 /* ---------- pricing ---------- */
